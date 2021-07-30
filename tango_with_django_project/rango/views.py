@@ -1,7 +1,11 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import HttpResponse
+
 def index(request):
-    html="Rango says hey there partner!"
-    return HttpResponse(html)
+    # Refer to the TwD book for more information on how this updated view works.
+    context_dict = {'boldmessage': 'Crunchy, creamy, cookie, candy, cupcake!'}
+    return render(request, 'rango/index.html', context=context_dict)
+
+def about(request):
+    # Spoiler: you don't need to pass a context dictionary here.
+    return render(request, 'rango/about.html')
